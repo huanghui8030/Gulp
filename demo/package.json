@@ -1,0 +1,32 @@
+{
+  "name": "archive",
+  "version": "1.0.0",
+  "description": "实名注册2016年改版",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-less": "^3.1.0",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-asset-rev": "^0.0.15",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "实名注册"
+  ],
+  "author": "",
+  "license": "ISC"
+}
