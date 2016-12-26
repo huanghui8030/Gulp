@@ -11,7 +11,7 @@ var crypto = require('crypto');
 var gutil = require('gulp-util');
 var through = require('through2');
 
-var PLUGIN_NAME = 'gulp-asset-rev';
+var PLUGIN_NAME = 'gulp-chsi-rev';
 
 var ASSET_REG = {
     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
