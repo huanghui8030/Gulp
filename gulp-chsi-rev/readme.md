@@ -48,7 +48,7 @@ body{background:url('../images/bg.png')}
 
 ### after: test.css
 ```css
-body{background:url("../images/bg.png?v=1482737522923"}
+body{background:url("../images/bg.png?v=1482737522923")}
 ```
 ### before: test.html
 ```html
