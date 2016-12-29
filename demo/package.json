@@ -1,7 +1,7 @@
 {
-  "name": "archive",
+  "name": "lscx",
   "version": "1.0.0",
-  "description": "实名注册2016年改版",
+  "description": "学历查询",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp-less": "^3.1.0",
@@ -9,8 +9,8 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-asset-rev": "^0.0.15",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-chsi-rev": "^1.0.4",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.12",
     "gulp-concat": "^2.6.0",
@@ -25,7 +25,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "实名注册"
+    "学历查询"
   ],
   "author": "",
   "license": "ISC"

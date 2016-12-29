@@ -1,6 +1,6 @@
 {
   "name": "gulp-chsi-rev",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "gulp插件，链接添加版本号",
   "main": "index.js",
   "scripts": {
