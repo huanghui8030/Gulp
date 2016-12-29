@@ -11,7 +11,7 @@ var crypto = require('crypto');
 var gutil = require('gulp-util');
 var through = require('through2');
 
-var PLUGIN_NAME = 'gulp-chsi-rev';
+var PLUGIN_NAME = 'gulp-asset-rev';
 
 var ASSET_REG = {
     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
@@ -63,11 +63,17 @@ module.exports = function (options) {
                     if(hasVer>-1){
                         src = src.substring(0,hasVer);
                     }
+                    if(src.indexOf('?')!=-1){
+                        console.log('已有参数');
+                        src += "&v=";
+                    }else{
+                        src += "?v=";
+                    }
                     // remote resource
                     if (/^https?:\/\//.test(src)) {
                         //return str;
                         var date = new Date().getTime();
-                        src = src + "?v="+date;
+                        src  += date;
                         console.log('远程链接更改：'+src);
                         return tag + '"' + src + '"';
                     } 
@@ -87,11 +93,11 @@ module.exports = function (options) {
                         //src = src.replace(verStr, '').replace(/(\.[^\.]+)$/, verStr + "$1");
                         var verStr = (options.verConnecter || "") + md5;
                         var date = new Date().getTime();
-                        src = src + "?v="+date;
+                        src  += date;
                         console.log('本地链接更改：'+src);
                     } else {
                         var date = new Date().getTime();
-                        src = src + "?v="+date;
+                        src  += date;
                         console.log('相对路径链接更改：'+src);
                         //return src;
                     }
