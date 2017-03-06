@@ -1,5 +1,10 @@
 # gulp
-gulp相关
+
+- gulp相关插件，根据实际项目需求，写的gup插件
+
+## npm提交
+
+- npm publish
 
 
 ## gulp-chsi-rev 插件
