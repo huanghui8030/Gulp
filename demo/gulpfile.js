@@ -90,10 +90,10 @@ gulp.task('imgmin',function(){
 });
 
 //jsp页面引用时加入版本号
-gulp.task('jspDir',function() {
-    gulp.src([ArrAll.jspDir+'/**/*.jsp'])
+gulp.task('html',function() {
+    gulp.src(['html/*.html'])
         .pipe(chsiRev())
-        .pipe(gulp.dest(ArrAll.jspDir));
+        .pipe(gulp.dest('html/'));
 });
 
 gulp.task('testRev',function() {
