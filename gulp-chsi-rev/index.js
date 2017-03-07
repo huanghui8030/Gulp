@@ -3,7 +3,7 @@
  * @description 文件版本号输出方式；截取字符串，避免出现多个版本号叠加；修改远程链接版本号，如果已存在则替换；
  * @modify      huanghui8030@qq.com
  * @date        20161226  
- * @modify      20170306 t-common目录下的内容不修改版本号
+ * @modify      20170306 js动态加载进来时需要增加版本号。
  */
 var path = require('path');
 var fs = require('fs');
@@ -12,7 +12,7 @@ var crypto = require('crypto');
 var gutil = require('gulp-util');
 var through = require('through2');
 
-var PLUGIN_NAME = 'gulp-asset-rev';
+var PLUGIN_NAME = 'gulp-chsi-rev';
 
 var ASSET_REG = {
     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
@@ -20,7 +20,8 @@ var ASSET_REG = {
     "STYLESHEET": /(<link[^>]+href=)['"]([^'"]+)["']/ig,
     "style-path": /(<link[^>]+path=)['"]([^'"]+)["']/ig,
     "IMAGE": /(<img[^>]+src=)['"]([^'"]+)["']/ig,
-    "BACKGROUND": /(url\()(?!data:|about:)([^)]*)/ig
+    "BACKGROUND": /(url\()(?!data:|about:)([^)]*)/ig,
+    "dynamic-loading": /(<script>[^>]+addFile[(]['"]{css||js}['"][,])['"]([^'"]+)["']/ig   //js动态加载的内容 20170306 huanghui 
 };
 
 var createHash = function (file, len) {
@@ -29,7 +30,7 @@ var createHash = function (file, len) {
 
 module.exports = function (options) {
     return through.obj(function (file, enc, cb) {
-
+     
         options = options || {};
 
         if (file.isNull()) {
@@ -48,11 +49,9 @@ module.exports = function (options) {
 
         for (var type in ASSET_REG) {
             if (type === "BACKGROUND" && !/\.(css|scss|less)$/.test(file.path)) {
-
             } else {
-                content = content.replace(ASSET_REG[type], function (str, tag, src) {
+                content = content.replace(ASSET_REG[type], function (str, tag, src) { 
                     src = src.replace(/(^['"]|['"]$)/g, '');
-                    
                     if (!/\.[^\.]+$/.test(src)) {
                         return str;
                     }

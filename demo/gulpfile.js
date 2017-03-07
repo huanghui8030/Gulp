@@ -91,7 +91,7 @@ gulp.task('imgmin',function(){
 
 //jsp页面引用时加入版本号
 gulp.task('html',function() {
-    gulp.src(['html/*.html'])
+    gulp.src(['html/wap-test.html'])
         .pipe(chsiRev())
         .pipe(gulp.dest('html/'));
 });
