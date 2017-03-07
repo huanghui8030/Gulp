@@ -92,4 +92,7 @@ body{background:url("../images/bg.png?v=1482737522923")}
 - v1.0.6 t-common目录不修改参数，如果有参数则去掉。例如：
     -   `<link href="<chsi:spath path="/ch/iconfont.css" commonResource='true' />" rel="stylesheet"/>`
     -   `<script src="http://t3.chei.com.cn/common/js/jquery/jquery-1.8.3.min.js"></script> `
+    
+- v1.0.7 js动态加载进来的js和css，需要增加版本号，例如：
+    - `<script>if(wapFn()){addFile('css','https://t1.chei.com.cn/yz/sytj/assets/css/wap/tj-wap.min.css');}</script>`
 
