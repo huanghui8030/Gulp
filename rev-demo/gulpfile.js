@@ -12,12 +12,13 @@ var gulp = require('gulp'),                     //本地安装gulp所用到的�
     rev = require('gulp-rev'),                  //文件名加MD5后缀
     revCollector = require('gulp-rev-collector'),//路径替换
     watch = require('gulp-watch'),              //即时编译
-    chsiRev = require('gulp-chsi-rev'),	      //添加版本号
+    chsiRev = require('gulp-chsi-rev'),       //添加版本号
     concat = require('gulp-concat'),             //js合并
     uglify = require('gulp-uglify'),             //js压缩
     clean = require('gulp-clean'),              //删除文件，做操作前先删除文件
     imgmin = require('gulp-imagemin'),         //图片压缩
-    imgCache = require('gulp-cache');         //只压缩修改过的图片
+    pngquant = require('imagemin-pngquant');
+    //cache = require('gulp-cache');         //无用，对比缓存，时间更久！20170308
 
 var ArrAll = {
     lessDir : 'css/less',      //需要解析的less文件目录
@@ -46,13 +47,15 @@ gulp.task('commonLess', function () {
             cascade: true,                  //是否美化属性值 默认：true 
             remove:true                     //是否去掉不必要的前缀 默认：true 
         }))
-        .pipe(rev())                   //给css中的链接添加版本号
+        .pipe(chsiRev())                  //给css中的链接添加版本号
         //.pipe(rename({ suffix: '.min' }))   //重新命名，添加后缀名
         .pipe(cssmin())                     //压缩css
         .pipe(gulp.dest(ArrAll.cssRes))  //生成css文件，less放到css源目录中，然后在同一压缩
         .pipe(rev())
         .pipe(gulp.dest(ArrAll.cssRes))     //生成压缩文件
-        .pipe(rev.manifest())
+        .pipe(rev.manifest({
+            merge: false
+        }))
         .pipe(gulp.dest('./rev'));
 });
 
@@ -91,14 +94,15 @@ gulp.task('jsMin',function(){
 
 //图片处理
 gulp.task('imgmin',function(){
-  gulp.src(ArrAll.imgSrc+'/*.{png,jpg,gif,ico}')
-      .pipe(cache(imgmin({
-          optimizationLevel: 3, //类型：Number  默认：3  取值范围：0-7（优化等级）
-          progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
-          interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
-          multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+  gulp.src(ArrAll.imgSrc+'/**/*.{png,jpg,gif,ico}')
+      .pipe(imgmin({
+          optimizationLevel: 3, //默认：3  取值范围：0-7（优化等级）
+          progressive: true, //无损压缩jpg图片
+          interlaced: true, // 隔行扫描gif进行渲染
+          multipass: true ,//多次优化svg直到完全优化
+          use:[pngquant()]
       }))
-      .pipe(gulp.dest(ArrAll.imgSrc));
+      .pipe(gulp.dest(ArrAll.imgSrc))
 });
 
 /**
@@ -117,7 +121,7 @@ gulp.task('clean',function(){
  * @date：20160804
  **/
 gulp.task('watch',function(){
-	gulp.watch([ArrAll.lessDir+'/*.less','!'+ArrAll.lessDir+'/_*.less'],['commonLess']);   //less解析为css，并进行优化处理 
+ gulp.watch([ArrAll.imgSrc+'/*.{png,jpg,gif,ico}'],['imgmin']); gulp.watch([ArrAll.lessDir+'/*.less','!'+ArrAll.lessDir+'/_*.less'],['commonLess']);   //less解析为css，并进行优化处理 
   gulp.watch(['./rev/*.json', './html/**/*.html'],['rev']);
 });
 
@@ -127,6 +131,6 @@ gulp.task('watch',function(){
  * @date：20160804
  **/
 gulp.task('default',function(){
-	gulp.start(['commonLess','watch']);
+    gulp.start(['clean','commonLess','watch']);
 });
 
