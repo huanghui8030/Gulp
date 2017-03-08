@@ -9,6 +9,9 @@
 
 ## gulp-chsi-rev 插件
 
-- 具体内容，请点击[gulp-chsi-rev用法](gulp-chsi-rev/readme.md)
+- 具体内容，请点击[gulp-chsi-rev版本号插件](gulp-chsi-rev/readme.md)
 
 - 具体实例，请点击[gulp-demo](demo/html/demo.html)
+
+## gulp版本好研究
+- 具体，请点击[脚本后添加版本号](rev-demo/html/index.html)
