@@ -97,4 +97,6 @@ body{background:url("../images/bg.png?v=1482737522923")}
     - `<script>if(wapFn()){addFile('css','https://t1.chei.com.cn/yz/sytj/assets/css/wap/tj-wap.min.css');}</script>`
     
 - v1.0.8 每次更改时，所有修改都用同一个时间戳
+- v1.0.9 删除无用注释
+- v1.1.0 有个参数写错了
 

@@ -3,7 +3,7 @@
  * @description 文件版本号输出方式；截取字符串，避免出现多个版本号叠加；修改远程链接版本号，如果已存在则替换；
  * @modify      huanghui8030@qq.com
  * @date        20161226  
- * @modify      v1.0.8 20170309 每次更改时，用同一个时间戳。
+ * @modify      v1.1.0 20170309 每次更改时，用同一个时间戳。以及注释的删除
  */
 var path = require('path');
 var fs = require('fs');
@@ -29,7 +29,7 @@ var createHash = function (file, len) {
 };
 //获取当前时间
 var getDate = new Date().getTime();
-
+console.log('当前时间戳为：'+getDate);
 module.exports = function (options) {
     return through.obj(function (file, enc, cb) {
      
@@ -87,7 +87,7 @@ module.exports = function (options) {
                         }
                         //var date = new Date().getTime();
                         src  += getDate;
-                        console.log('远程链接更改：'+src);
+                        //console.log('远程链接更改：'+src);
                         return tag + '"' + src + '"';
                     } 
                     var assetPath = path.join(filePath, src);
@@ -99,16 +99,15 @@ module.exports = function (options) {
                         }
                     }
                     if (fs.existsSync(assetPath)) {
-                        console.log(1);
+
                         var buf = fs.readFileSync(assetPath);
 
                         var md5 = createHash(buf, options.hashLen || 7);
                         //src = src.replace(verStr, '').replace(/(\.[^\.]+)$/, verStr + "$1");
                         var verStr = (options.verConnecter || "") + md5;
                         src += getDate;
-                        console.log('本地链接更改：'+src);
+                        //console.log('本地链接更改：'+src);
                     } else {
-                         console.log(2);
                          //如果含有chei.com.cn/common/，则不修改
                         if(type=='style-path' || type=='script-path'){
                             if(src.indexOf('?v=')>-1){
@@ -121,8 +120,7 @@ module.exports = function (options) {
                        // var md5 = createHash(7);
                         //var verStr = (options.verConnecter || "") + md5;
                         src  += getDate;
-                        console.log('相对路径链接更改：'+src);
-                        //return src;
+                        //console.log('相对路径链接更改：'+src);
                     }
                     return tag + '"' + src + '"';
                 });
