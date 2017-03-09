@@ -95,4 +95,6 @@ body{background:url("../images/bg.png?v=1482737522923")}
     
 - v1.0.7 js动态加载进来的js和css，需要增加版本号，例如：
     - `<script>if(wapFn()){addFile('css','https://t1.chei.com.cn/yz/sytj/assets/css/wap/tj-wap.min.css');}</script>`
+    
+- v1.0.8 每次更改时，所有修改都用同一个时间戳
 

@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-asset-rev": "^0.0.15",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-chsi-rev": "^1.0.6",
     "gulp-clean": "^0.3.2",

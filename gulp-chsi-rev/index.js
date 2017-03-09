@@ -3,7 +3,7 @@
  * @description 文件版本号输出方式；截取字符串，避免出现多个版本号叠加；修改远程链接版本号，如果已存在则替换；
  * @modify      huanghui8030@qq.com
  * @date        20161226  
- * @modify      20170306 js动态加载进来时需要增加版本号。
+ * @modify      v1.0.8 20170309 每次更改时，用同一个时间戳。
  */
 var path = require('path');
 var fs = require('fs');
@@ -27,6 +27,8 @@ var ASSET_REG = {
 var createHash = function (file, len) {
     return crypto.createHash('md5').update(file).digest('hex').substr(0, len);
 };
+//获取当前时间
+var getDate = new Date().getTime();
 
 module.exports = function (options) {
     return through.obj(function (file, enc, cb) {
@@ -55,7 +57,6 @@ module.exports = function (options) {
                     if (!/\.[^\.]+$/.test(src)) {
                         return str;
                     }
-                    //console.log('src:'+src);
                     if (options.verStr) {
                         src += options.verStr;
                         return tag + '"' + src + '"';
@@ -84,8 +85,8 @@ module.exports = function (options) {
                             }
                             return tag + '"' + src + '"';
                         }
-                        var date = new Date().getTime();
-                        src  += date;
+                        //var date = new Date().getTime();
+                        src  += getDate;
                         console.log('远程链接更改：'+src);
                         return tag + '"' + src + '"';
                     } 
@@ -98,16 +99,16 @@ module.exports = function (options) {
                         }
                     }
                     if (fs.existsSync(assetPath)) {
+                        console.log(1);
                         var buf = fs.readFileSync(assetPath);
 
                         var md5 = createHash(buf, options.hashLen || 7);
-                        //var verStr = (options.verConnecter || "-") + md5;
                         //src = src.replace(verStr, '').replace(/(\.[^\.]+)$/, verStr + "$1");
                         var verStr = (options.verConnecter || "") + md5;
-                        var date = new Date().getTime();
-                        src  += date;
+                        src += getDate;
                         console.log('本地链接更改：'+src);
                     } else {
+                         console.log(2);
                          //如果含有chei.com.cn/common/，则不修改
                         if(type=='style-path' || type=='script-path'){
                             if(src.indexOf('?v=')>-1){
@@ -117,8 +118,9 @@ module.exports = function (options) {
                             }
                             return tag + '"' + src + '"';
                         }
-                        var date = new Date().getTime();
-                        src  += date;
+                       // var md5 = createHash(7);
+                        //var verStr = (options.verConnecter || "") + md5;
+                        src  += getDate;
                         console.log('相对路径链接更改：'+src);
                         //return src;
                     }

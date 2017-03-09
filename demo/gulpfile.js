@@ -11,6 +11,7 @@ var gulp = require('gulp'),                     //本地安装gulp所用到的�
     concatCss = require('gulp-concat-css'),
     watch = require('gulp-watch'),              //即时编译
     chsiRev = require('gulp-chsi-rev'),	      //添加版本号
+    assetRev = require('gulp-asset-rev'),	      //添加版本号
     concat = require('gulp-concat'),             //js合并
     uglify = require('gulp-uglify'),             //js压缩
     clean = require('gulp-clean'),               //删除文件，做操作前先删除文件
@@ -91,17 +92,17 @@ gulp.task('imgmin',function(){
 
 //jsp页面引用时加入版本号
 gulp.task('html',function() {
-    gulp.src(['html/wap-test.html'])
+    gulp.src(['html/demo.html'])
         .pipe(chsiRev())
         .pipe(gulp.dest('html/'));
 });
 
-gulp.task('testRev',function() {
-    gulp.src([ArrAll.jspDir+'/**/*.jsp'])
-        .pipe(chsiRev())
-        .pipe(gulp.dest(ArrAll.jspDir));
+//jsp页面引用时加入版本号
+gulp.task('revhtml',function() {
+    gulp.src(['html/demo.html'])
+        .pipe(assetRev())
+        .pipe(gulp.dest('html/'));
 });
-
 /**
  * @description：clean清空文件夹
  * @author：huangh@chsi.com.cn 
