@@ -13,5 +13,8 @@
 
 - 具体实例，请点击[gulp-demo](demo/html/demo.html)
 
-## gulp版本好研究
+## gulp版本研究
 - 具体，请点击[脚本后添加版本号](rev-demo/html/index.html)
+
+## gulp相关配置的实例
+- [gulp相关配置的实例](gulpTest)
