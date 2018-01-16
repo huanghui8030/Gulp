@@ -1,0 +1,198 @@
+<h1 id="gulp">Gulp</h1>
+<p>​    <a href="http://www.gulpjs.com.cn/docs/getting-started/">gulp官网</a>、<a href="http://www.ydcss.com/archives/18">gulp入门</a></p>
+<h2 id="1-">1、基本用法</h2>
+<ul>
+<li><p>全局安装gulp</p>
+<pre><code>$ npm install --global gulp
+</code></pre></li>
+<li><p>作为项目的开发依赖（devDependencies）安装</p>
+<pre><code>$ npm install --save-dev gulp
+</code></pre></li>
+<li><p>在项目根目录下创建一个名为 <code>gulpfile.js</code> 的文件：</p>
+<pre><code class="lang-js">var gulp = require(&#39;gulp&#39;);
+gulp.task(&#39;default&#39;, function() {
+  // 将你的默认的任务代码放在这
+});
+</code></pre>
+</li>
+<li><p>运行gulp</p>
+<pre><code>$ gulp
+</code></pre></li>
+</ul>
+<h2 id="2-">2、插件</h2>
+<ul>
+<li><a href="http://www.ydcss.com/archives/34">gulp-less</a>：使用gulp-less插件将less文件编译成css，当有less文件发生改变自动编译less，并保证less语法错误或出现异常时能正常工作并提示错误信息。</li>
+<li><a href="http://www.ydcss.com/archives/702">gulp-livereload</a>：gulp-livereload拯救F5！当监听文件发生变化时，浏览器自动刷新页面。【事实上也不全是完全刷新，例如修改css的时候，不是整个页面刷新，而是将修改的样式植入浏览器，非常方便。】特别是引用外部资源时，刷新整个页面真是费时费力。</li>
+<li><a href="http://www.ydcss.com/archives/94">gulp-autoprefixer</a>：使用gulp-autoprefixer根据设置浏览器版本自动处理浏览器前缀。使用她我们可以很潇洒地写代码，不必考虑各浏览器兼容前缀。【特别是开发移动端页面时，就能充分体现它的优势。例如兼容性不太好的flex布局。】</li>
+<li><a href="http://www.ydcss.com/archives/83">gulp-concat</a>：使用gulp-concat合并javascript文件，减少网络请求。</li>
+<li><a href="http://www.ydcss.com/archives/54">gulp-uglify</a>：使用gulp-uglify压缩javascript文件，减小文件大小。</li>
+<li><a href="http://www.ydcss.com/archives/49">gulp-rev-append</a>：使用gulp-rev-append给页面的引用添加版本号，清除页面引用缓存。<ul>
+<li>gulp-asset-rev，添加版本号，不用再页面加入参数<code>npm install --save-dev gulp-asset-rev</code></li>
+</ul>
+</li>
+<li><a href="http://www.ydcss.com/archives/41">gulp-minify-css、gulp-clean-css</a>：使用gulp-minify-css压缩css文件，减小文件大小，并给引用url添加版本号避免缓存。重要：gulp-minify-css已经被废弃，请使用gulp-clean-css，用法一致。</li>
+<li><a href="http://www.ydcss.com/archives/26">gulp-imagemin</a>：使用gulp-imagemin压缩图片文件（包括PNG、JPEG、GIF和SVG图片），很多人安装gulp-imagemin都会出现错误，我也查了很多资料，也不知道所以然，我的做法是出错再重新安装，如果你知道问题所在，请一定告诉我！</li>
+<li><a href="http://www.ydcss.com/archives/20">gulp-htmlmin</a>：使用gulp-htmlmin压缩html，可以压缩页面javascript、css，去除页面空格、注释，删除多余属性等操作。</li>
+<li><a href="https://github.com/hparra/gulp-rename">gulp-rename</a>：重命名</li>
+<li><a href="https://github.com/lazd/gulp-csslint">gulp-csslint</a>：检查css语法</li>
+<li><a href="https://github.com/floatdrop/gulp-watch">gulp-watch</a>：及时更改文件，执行gulp操作，不用手动执行</li>
+<li><a href="https://www.npmjs.com/package/gulp-asset-rev">gulp-asset-rev</a>：加入版本号，修改下源码。让远程链接也可以修改版本号。</li>
+<li><a href="https://www.npmjs.com/package/gulp-clean">gulp-clean</a>：删除目录。<a href="http://www.cnblogs.com/1wen/p/4586198.html">参考</a></li>
+<li><a href="https://github.com/addyosmani/gulp-uncss-task">gulp-uncss</a> ：移除空的css元素，如果用less编译的话会自动删掉空的css元素</li>
+</ul>
+<h2 id="3-">3、卸载插件</h2>
+<p>使用npm卸载插件：<strong>npm uninstall <name> [-g][--save-dev]</strong>  ，<strong>不要直接删除本地插件包</strong></p>
+<ul>
+<li>删除全部插件：<strong>npm uninstall gulp-less gulp-uglify gulp-concat ……</strong>，太麻烦**</li>
+<li>借助rimraf：<strong>npm install rimraf -g</strong> 用法：<strong>rimraf node_modules</strong></li>
+</ul>
+<h2 id="4-">4、项目构建</h2>
+<h3 id="-">新建项目</h3>
+<ul>
+<li>新建项目，将所有的css、js、images、html都放到src目录下，同时建立对应的包文件。css中放入一个less的包放less文件。 </li>
+</ul>
+<h3 id="-">前期装备</h3>
+<ul>
+<li><p>安装node</p>
+<ul>
+<li>gulp是基于nodejs，理所当然需要安装nodejs，</li>
+<li>安装方法<a href="http://nodejs.org/">nodejs官网</a>；</li>
+</ul>
+</li>
+<li><p>安装npm</p>
+<ul>
+<li>nodejs的包管理器，用于node插件管理（包括安装、卸载、管理依赖等）。</li>
+<li>使用npm安装插件：命令提示符执行<code>npm install &lt;name&gt; [-g][--save-dev]</code>；</li>
+<li><strong>name</strong> ：node插件名称。例：<code>npm install gulp-less --save-dev</code>;</li>
+<li><strong>-g</strong> ：全局安装。将会安装在本地，并且写入系统环境变量；  非全局安装：将会安装在当前定位目录；  全局安装可以通过命令行在任何地方调用它，本地安装将安装在定位目录的node_modules文件夹下，通过require()调用；</li>
+<li><strong>--save</strong> ：将保存配置信息至package.json（package.json是<a href="http://www.ydcss.com/archives/18#lesson6">nodejs项目配置文件</a>）；</li>
+<li><strong>-dev</strong>：保存至package.json的devDependencies节点，不指定-dev将保存至dependencies节点；一般保存在dependencies的像这些express/ejs/body-parser等等。 </li>
+</ul>
+</li>
+<li><p>可选择<a href="[http://npm.taobao.org](http://npm.taobao.org/">cnpm</a>)代替npm，速度快</p>
+<ul>
+<li>安装方法，执行<code>npm install cnpm -g --registry=https://registry.npm.taobao.org</code></li>
+<li>cnpm跟npm用法完全一致，只是在执行命令时将npm改为cnpm</li>
+</ul>
+</li>
+<li>全局安装gulp，安装：<code>sudo cnpm install gulp -g</code></li>
+</ul>
+<h3 id="-">新建本地配置文件</h3>
+<ul>
+<li><p>新建package.json文件</p>
+<ul>
+<li><p>基于nodejs项目必不可少的配置文件，放在根目录下的普通json文件</p>
+</li>
+<li><p>如下，（json文件内不能添加注释）</p>
+<pre><code class="lang-json">{
+  &quot;name&quot;: &quot;test&quot;,   //项目名称（必须）
+  &quot;version&quot;: &quot;1.0.0&quot;,   //项目版本（必须）
+  &quot;description&quot;: &quot;这是一个什么项目呢&quot;,   //项目描述（必须）
+  &quot;homepage&quot;: &quot;&quot;,   //项目主页
+  &quot;repository&quot;: {    //项目资源库
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;https://github.com/huanghui8030/&quot;
+  },
+  &quot;author&quot;: {    //项目作者信息
+    &quot;name&quot;: &quot;huanghui&quot;,
+    &quot;email&quot;: &quot;huanghui8030@qq.com&quot;
+  },
+  &quot;license&quot;: &quot;ISC&quot;,    //项目许可协议
+  &quot;devDependencies&quot;: {    //项目依赖的插件
+    &quot;gulp&quot;: &quot;^3.8.11&quot;,
+    &quot;gulp-less&quot;: &quot;^3.0.0&quot;
+  }
+}
+</code></pre>
+</li>
+<li><p>可通过命令行直接生成该配置文件，<code>cnpm init</code></p>
+</li>
+</ul>
+</li>
+<li><p>本地安装gulp插件</p>
+<ul>
+<li>项目根目录下执行安装，<code>cnpm install --save-dev</code></li>
+<li>安装gulp-less，编译less文件，<code>cnpm install gulp-less --save-dev</code></li>
+<li>安装gulp，<code>cnpm install gulp --save-dev</code>。全局安装了gulp，项目也安装了gulp，全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>新建gulpfile.js文件</p>
+<ul>
+<li><p>gulpfile.js是gulp项目的配置文件，是位于项目根目录的普通js文件（其实将gulpfile.js放入其他文件夹下亦可）</p>
+</li>
+<li><p>示例</p>
+<pre><code class="lang-js">//导入工具包 require(&#39;node_modules里对应模块&#39;)
+var gulp = require(&#39;gulp&#39;), //本地安装gulp所用到的地方
+    less = require(&#39;gulp-less&#39;);
+
+//定义一个testLess任务（自定义任务名称）
+gulp.task(&#39;testLess&#39;, function () {
+    gulp.src(&#39;src/less/index.less&#39;) //该任务针对的文件
+        .pipe(less()) //该任务调用的模块
+        .pipe(gulp.dest(&#39;src/css&#39;)); //将会在src/css下生成index.css
+});
+
+gulp.task(&#39;default&#39;,[&#39;testLess&#39;, &#39;elseTask&#39;]); //定义默认任务 elseTask为其他任务，该示例没有定义elseTask任务
+
+//gulp.task(name[, deps], fn) 定义任务  name：任务名称 deps：依赖任务名称 fn：回调函数
+//gulp.src(globs[, options]) 执行任务处理的文件  globs：处理的文件路径(字符串或者字符串数组) 
+//gulp.dest(path[, options]) 处理完后文件生成路径
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="-gulp">运行gulp</h3>
+<ul>
+<li><p>gulp方法</p>
+<ul>
+<li>说明：命令提示符执行<strong>gulp 任务名称</strong>；**</li>
+<li>编译less：命令提示符执行<strong>gulp testLess</strong>；**</li>
+<li>当执行<strong>gulp default</strong>或<strong>gulp</strong>将会调用default任务里的所有任务[‘testLess’,’elseTask’]。</li>
+</ul>
+</li>
+<li><p>添加css相关插件</p>
+<ul>
+<li><p>gulp-less，编译less：<code>cnpm install gulp-less --save-dev</code></p>
+</li>
+<li><p>gulp-autoprefixer，添加厂商前缀：<code>cnpm install gulp-autoprefixer --save-dev</code></p>
+</li>
+<li><p>gulp-csslint，检查css语法：<code>cnpm install gulp-csslint --save-dev</code></p>
+</li>
+<li><p>gule-rename，重命名：<code>cnpm install gulp-rename --save-dev</code></p>
+</li>
+<li><p>gulp-clean-css，压缩css：<code>cnpm install gulp-clean-css --save-dev</code></p>
+</li>
+<li><p>gulp-watch，有改动时自动编译：<code>cnpm install gulp-watch --save-dev</code></p>
+</li>
+<li><p>gulp-livereload，不用刷新页面： <code>cnpm install gulp-livereload --save-dev</code></p>
+</li>
+<li><p><a href="https://github.com/ben-eb/gulp-csso">gulp-csso</a>，css属性合并： <code>cnpm install gulp-csso --save-dev</code> 没有效果</p>
+</li>
+<li><p>css语法检查：</p>
+<ul>
+<li><p>通过stylelint来检查css语法，做代码检测工作：</p>
+</li>
+<li><pre><code>npm install gulp-postcss postcss-reporter stylelint postcss-scss --save-dev
+</code></pre></li>
+<li><p>gulp-csslint，检查css语法：<code>cnpm install gulp-csslint --save-dev</code>，已测试检查不出来错误。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>添加js相关插件</p>
+<ul>
+<li>gulp-concat，js合并，cnpm install gulp-concat --save-dev</li>
+<li>gulp-uglify，js压缩，cnpm install gulp-uglify --save-dev</li>
+<li>gulp-jslint，js代码检验，cnpm install gulp-jslin t  --save-dev  </li>
+</ul>
+</li>
+<li><p>添加images相关插件</p>
+<ul>
+<li>gulp-imagemin，图片压缩，<code>**cnpm install gulp-imagemin --save-dev**</code></li>
+</ul>
+</li>
+</ul>

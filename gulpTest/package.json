@@ -1,0 +1,29 @@
+{
+  "name": "1.0.0",
+  "version": "1.0.0",
+  "description": "测试gulp在整个项目中的用法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "huanghui",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-asset-rev": "^0.0.15",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-csslint": "^0.3.1",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-less": "^3.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9",
+    "postcss-reporter": "^1.4.1",
+    "stylelint": "^7.1.0"
+  }
+}

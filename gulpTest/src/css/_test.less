@@ -1,0 +1,40 @@
+@bgColor:#e1e1e1;
+@basefs:14px;
+body{
+	width:800px;
+	background:@bgColor;
+	font-size:@basefs;
+	margin:0 auto;
+	width:auto;
+	border:1px solid #ccc;
+}
+.example {
+    display: flex;
+    transition: all .5s;
+    user-select: none;
+    background: linear-gradient(to bottom, white, black);
+}
+.divP{
+	width:100px;
+	div{
+		width:90px;
+		p{
+			width:80px;
+			a{
+				width:70px;
+				&:hover{
+					width:60px
+				}
+			}
+		}
+	}
+}
+#divImg{
+	background:#f1f1f1;
+	div{
+		width:100px;
+		height:100px;
+		background:#f4f4f4;
+	}
+	
+}

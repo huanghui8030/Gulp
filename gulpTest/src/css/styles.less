@@ -1,0 +1,42 @@
+@divWidth:200px;
+body{
+	background:green;
+}
+p{}
+.div4{
+	display:inline-block;
+	width:100px;
+	height:200px;}
+.div3{
+	font-family: Arial;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+    background-image: url('../../images/img1.jpg');
+    background-color: #eee;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.div1{
+	width:@divWidth;
+	display: block;
+	color:#cfa;
+	border:1px solid #ccc;
+	background:url(../../images/img1.jpg) no-repeat 50% 50%;
+	height:200px;
+}
+.div2{
+	width:@divWidth;
+	border:1px solid #ccc;
+	height:100px;
+	background:url(https://t1.chei.com.cn/passport/images/login2014/xxw_center.jpg);
+	background-size: 100% 100%;
+}
+.div3{
+	width:@divWidth;
+	height:100px;
+	background: url(http://axvert.chsi.com.cn/img/1588483665.jpg);
+	background-size: 100% 100%;
+}
+@import '_test.less';
