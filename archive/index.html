@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/dist/css/archive.min.css">
+    <script src="dist/js/archive.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <div class="container">
+    <a class="navbar-brand" href="#">学信档案</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item active"><a class="nav-link" href="#">高等教育信息</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">在线验证报告</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">学历与成绩认证</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">国际合作申请</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">调查/投票</a></li>
+    </ul> 
+    <ul class="nav navbar-nav pull-right">
+        <li class="nav-item active">
+            <a class="nav-link" href="https://nagios88/account/account!show" target="_blank">abcde@chsi.com.cn</a>
+        </li> 
+        <li class="nav-item active">
+            <a class="nav-link" href="http://my.chsi.com.cn/archive/admin/index.action">后台</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="https://nagios88/account/help/index.jsp" target="_blank">帮助</a>
+        </li>
+        <li class="nav-item active"><a class="nav-link" onclick="logoutFn(event);" href="https://nagios88/passport/logout">退出</a>
+        </li>     
+    </ul>
+  </div>
+</nav>
+<div class="container">
+   <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-8">
+      <div class='card card-block'>
+          <h4><span>张三</span>，欢迎进入您的学信档案！</h4>
+          <span>账号：abcde@chsi.com.cn，身份证号：410***1234</span>
+      </div>
+      <div class='card card-block'>
+          <div class="row index-list">
+              <div class='col-xs-6 col-lg-4'>
+                <h5>高等教育信息</h5>
+                <a href="#">查看</a>
+              </div>
+              <div class='col-xs-6 col-lg-4'>
+                <h5>在线验证报告</h5>
+                <a href="#">查看</a><a href="#">申请</a>
+              </div>
+              <div class='col-xs-6 col-lg-4'>
+                <h5>学历与成绩认证</h5>
+                <a href="#">查看</a><a href="#">绑定</a>
+              </div>
+              <div class='col-xs-6 col-lg-4'>
+                <h5>国际合作申请</h5>
+                <a href="#">查看</a><a href="#">发送报告</a>
+              </div>
+              <div class='col-xs-6 col-lg-4'>
+                <h5>调查/投票</h5>
+                <a href="#">参与</a>
+              </div>
+              <div class='col-xs-6 col-lg-4'>
+                <h5>图像校对</h5>
+                <a href="#">参与</a>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-4 sidebar-offcanvas">
+        <div class='card card-block'>
+          <h4>学信档案</h4>
+          <p>"学信档案"是中国高等教育学生信息网(简称“学信网”)各类学生个人信息档案的总称，涉及全国高等教育学生信息数据库中各类学生的学籍、学历、招生录取等信息。学生本人通过实名注册，利用手机短信(免短信费)或邮箱获得注册校验码的方式，将自己的实际身份与数据库中的高考、学籍、学历、学生资助等信息实现绑定，实现免费注册和免费查询所有的个人档案信息，并使自己拥有一份完整的学信电子档案。[<a href="<%=accountPath%>/help/index.jsp" target="_blank">详细</a>]</p>
+        </div>
+    </div>
+  </div>
+    
+</div>
+
+
+</body>
+</html>

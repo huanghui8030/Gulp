@@ -1,0 +1,75 @@
+/**
+ * 首页样式 huangh@chsi.com.cn
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 70px;
+  background:#f0f5f3;
+    color:#333;
+}
+footer {
+  padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+/* header */
+.bg-inverse{
+    background: #25b887;
+}
+/* left */
+.card{
+    background: #fff;
+    padding:2.25rem;
+    box-shadow: 2px 2px 6px #ccc;
+}
+.index-list{
+    
+}
+/* right */
+
