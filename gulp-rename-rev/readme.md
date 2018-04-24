@@ -73,3 +73,5 @@ dist/rev-manifest.json
 ## 更新日志
 - v1.0.0  提交gulp-rename-rev插件
 
+
+> 主要参考：gulp-rev 来完成的。

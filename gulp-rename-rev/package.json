@@ -1,6 +1,6 @@
 {
   "name": "gulp-rename-rev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gulp插件，文件根据特定的格式进行修改版本号，例如：a.js->a-1.1.1.js,b-1.2.3.js->b-1.3.3.js",
   "license": "ISC",
   "repository": {
@@ -29,6 +29,11 @@
     "through2": "^2.0.3",
     "vinyl": "^2.1.0",
     "vinyl-file": "^3.0.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "p-event": "^1.0.0",
+    "xo": "*"
   },
   "bugs": {
     "url": "https://github.com/huanghui8030/gulp/issues"
