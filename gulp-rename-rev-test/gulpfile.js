@@ -3,13 +3,10 @@ const gulp = require('gulp'),
 
 
 //添加版本号，并将对应的文件写到json文件中。
-gulp.task('rev', () =>
+gulp.task('renameRev', () =>
     gulp.src('src/*.js')
         .pipe(renameRev(2))
         .pipe(gulp.dest('dist'))
-        .pipe(renameRev.manifest({
-            
-            merge: true
-        }))
+        .pipe(renameRev.manifest())
         .pipe(gulp.dest('dist'))
 );
