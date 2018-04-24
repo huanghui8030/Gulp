@@ -70,7 +70,12 @@ dist/rev-manifest.json
   "c-1.2.3.js": "c-1.3.3.js"
 }
 ```
+## 思路
+
+![效果图](/img.png)
+
 ## 更新日志
+
 - v1.0.0  提交gulp-rename-rev插件
 
 
