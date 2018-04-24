@@ -177,7 +177,6 @@ plugin.manifest = (pth, opts) => {
 			cb();
 			return;
 		}
-		console.log('opt:'+opts);
 
 		getManifestFile(opts).then(manifestFile => {  //生成json格式配置文件
 			if (opts.merge && !manifestFile.isNull()) {
