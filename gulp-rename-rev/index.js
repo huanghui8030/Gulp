@@ -47,17 +47,15 @@ function transformFilename(file,indexRev) {
 
 	file.path = modifyFilename(file.path, (filename, extension) => { //修改名称
 		const extIndex = filename.indexOf('.');
-		console.log('extIndex:'+extIndex);
 		/*filename = extIndex === -1 ?
 			revPath(filename, file.revHash) :
 			revPath(filename.slice(0, extIndex), file.revHash) + filename.slice(extIndex);*/
 		
-		console.log('filename:'+filename+'---'+extension);
 		
 		var rev = filename.substring(filename.lastIndexOf('-')+1);
 		var overname = filename.substring(0,filename.lastIndexOf('-')) || filename;
 		
-		console.log('rev:'+rev,'overname:'+overname);
+		//console.log('rev:'+rev,'overname:'+overname);
 		
 		var revArr = rev.split(".");
 		var newIndex = parseInt(indexRev)-1;
@@ -71,8 +69,6 @@ function transformFilename(file,indexRev) {
 		}
 		var newname = overname +'-'+ newrev + extension;
 
-		console.log(newname);
-		console.log('----------------------------------');
 		return newname;
 	});
 }
