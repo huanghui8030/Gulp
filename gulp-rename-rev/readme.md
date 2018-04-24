@@ -72,7 +72,7 @@ dist/rev-manifest.json
 ```
 ## 思路
 
-![效果图](/gulp-rename-rev/img.png)
+![效果图](img.png)
 
 ## 更新日志
 
