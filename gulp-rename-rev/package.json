@@ -1,9 +1,20 @@
 {
   "name": "gulp-rename-rev",
   "version": "1.0.0",
-  "description": "",
-  "license": "MIT",
-  "repository": "sindresorhus/gulp-rev",
+  "description": "gulp插件，文件根据特定的格式进行修改版本号，例如：a.js->a-1.1.1.js,b-1.2.3.js->b-1.3.3.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url":  "https://github.com/huanghui8030/gulp/tree/master/gulp-rename-rev"
+  },
+  "keywords": [
+    "gulpplugin",
+    "gulp",
+    "rename",
+    "rev",
+    "gulp rename",
+    "gulp rev"
+  ],
   "author": {
     "name": "huanghui",
     "email": "huanghui8030@qq.com",
@@ -18,5 +29,9 @@
     "through2": "^2.0.3",
     "vinyl": "^2.1.0",
     "vinyl-file": "^3.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/huanghui8030/gulp/issues"
+  },
+  "homepage": "https://github.com/huanghui8030/gulp#readme"
 }
