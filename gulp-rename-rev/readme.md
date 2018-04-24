@@ -76,7 +76,9 @@ dist/rev-manifest.json
 
 ## 更新日志
 
-- v1.0.0  提交gulp-rename-rev插件
+- v1.0.3  提交gulp-rename-rev插件，之前提交有些问题错了。目前已修正。
 
 
-> 主要参考：gulp-rev 来完成的。
+
+
+> 主要参考：[gulp-rev](https://www.npmjs.com/package/gulp-rev) 来完成的。
