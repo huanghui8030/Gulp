@@ -1,6 +1,6 @@
 ## gulp-chsi-rev
 
-基于gulp.js的插件，文件添加版本号。方式如下。
+基于gulp.js的插件，文件添加时间戳作为版本号。
 
 ## Installation安装
 

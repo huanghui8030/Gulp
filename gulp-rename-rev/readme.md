@@ -16,9 +16,16 @@ npm i gulp-rename-rev --save-dev
 
 ## Usage用法
 
+- 引入：const renameRev = require('gulp-rename-rev');
+- 调用：renameRev(index)
+  - 参数index：1、2、3，标记是修改哪个版本号。具体见上面的【规则】。默认为3。
+- 生成json格式的配置文件：renameRev.manifest()
+  - 该步骤不能少，通过配置文件可以很清晰的看到本次修改了哪些文件，有一个列表
+  - 缺点：目前配置文件不能累加。但在svn记录中可以找到每次修改了哪些脚本文件。
+
 ```js
-var gulp = require('gulp');
-var renameRev = require('gulp-rename-rev');
+const gulp = require('gulp'),
+      renameRev = require('gulp-rename-rev');
 
 gulp.task('renameRev', () =>
     gulp.src('src/*.js')
@@ -32,8 +39,8 @@ gulp.task('renameRev', () =>
 ## Example实例
 
 ```js
-var gulp = require('gulp');
-var renameRev = require('gulp-rename-rev');
+const gulp = require('gulp'),
+      renameRev = require('gulp-rename-rev');
 
 gulp.task('renameRev', () =>
     gulp.src('src/*.js')
