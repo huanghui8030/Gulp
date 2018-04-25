@@ -87,5 +87,4 @@ dist/rev-manifest.json
 
 
 
-
 > 主要参考：[gulp-rev](https://www.npmjs.com/package/gulp-rev) 来完成的。
