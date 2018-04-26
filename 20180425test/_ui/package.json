@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename-rev": "^1.0.5"
+  }
+}

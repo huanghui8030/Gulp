@@ -1,0 +1,6 @@
+{
+  "css/a.css": "css/a-1.0.0.css",
+  "js/a.js": "js/a-1.0.0.js",
+  "js/b-1.0.1.js": "js/b-1.0.2.js",
+  "less/a.less": "less/a-1.0.0.less"
+}
