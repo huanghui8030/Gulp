@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @description: 为了满足公司业务需求，文件进行更名操作。 
 			 * 实现：name.js->name-n1.n2.n3.js
@@ -8,7 +7,8 @@
 				 * n2是次主要版本号，若有较大变动可修改n2。
 				 * n3为小版本号，若js就改个文字等啥的，不存在兼容问题的，可仅修改n3。
  * @author huanghui8030@qq.com 
- * @data 20180424
+ * @data 20180424  
+ * @modify  20180426 默认版本号改成1.0.0；有min.js文件时将其反到最后面。
  */
 
 const path = require('path');
@@ -20,6 +20,7 @@ const sortKeys = require('sort-keys');
 const modifyFilename = require('modify-filename');
 const Vinyl = require('vinyl');
 const PluginError = require('plugin-error');
+const InitRev = '1.0.0';
 
 function relPath(base, filePath) {
 	filePath = filePath.replace(/\\/g, '/');
@@ -46,22 +47,21 @@ function transformFilename(file,indexRev) {
 	file.revHash = revHash(file.contents);
 
 	file.path = modifyFilename(file.path, (filename, extension) => { //修改名称
-		const extIndex = filename.indexOf('.');
-		/*filename = extIndex === -1 ?
-			revPath(filename, file.revHash) :
-			revPath(filename.slice(0, extIndex), file.revHash) + filename.slice(extIndex);*/
-		
-		
+	
 		var rev = filename.substring(filename.lastIndexOf('-')+1);
 		var overname = filename.substring(0,filename.lastIndexOf('-')) || filename;
-		
-		//console.log('rev:'+rev,'overname:'+overname);
+		var minLen = rev.indexOf('.min');
+		if( minLen >-1){ 
+			rev = rev.substring(0,minLen);
+			extension = '.min'+extension;
+			overname = overname.substring(0,minLen);
+		}
 		
 		var revArr = rev.split(".");
 		var newIndex = parseInt(indexRev)-1;
 
 		
-		var newrev = '1.1.1' ;
+		var newrev = InitRev ;
 
 		if(revArr.length==3){
 			revArr[newIndex] = parseInt(revArr[newIndex]) +1; 
