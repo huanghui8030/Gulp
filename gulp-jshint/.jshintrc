@@ -1,0 +1,23 @@
+{
+    "eqeqeq": false,    // 不提示使用 == 和 !== 的一般比较
+    "-W041": true,     // 不提示使用 == 和 !== 与''或0的比较
+    "eqnull": true,     // 不提示和 null 比较
+    "sub": true,        // 不提示使用 [] 形式访问对象属性
+   
+    "es3": true,        // 提示尾部逗号
+    "bitwise": true,    // 提示位操作符的使用（防止逻辑运算符笔误）
+    "curly": true,      // 提示条件语句和循环语句的语句体没有使用大括号包裹
+    "immed": true,      // 提示立即执行函数没有使用小括号包裹
+    "latedef": "nofunc",// 提示变量使用先于变量声明（但函数声明除外）
+    "noarg": true,      // 提示 arguments.caller 和 arguments.callee 的使用
+    "undef": true,      // 提示变量未声明就使用（跨文件全局变量请在predef中显式列出）
+    "unused": true,     // 提示未使用的变量
+    "browser": true,    // 感知浏览器API，对应变量默认为已声明的，如 document, navigator, FileReader
+    "jquery": true,     // 感知jQuery API
+    "devel": true,   // 感知调试API，如console, alert等，不推荐用于正式发布
+    "predef": [         // 列出已知的全局变量，默认为已声明的
+        "Ext",
+        "XMLifeOperating",
+        "sendPutRequest"
+    ]
+}

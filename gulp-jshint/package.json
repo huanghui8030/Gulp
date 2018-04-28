@@ -1,0 +1,14 @@
+{
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-chsi-rev": "^1.1.2",
+        "gulp-jshint": "^2.1.0",
+        "gulp-rename-rev": "^1.0.6"
+    },
+    "jshintConfig": {
+        "undef": true,
+        "unused": true,
+        "predef": ["MY_GLOBAL", "ads"]
+    },
+    "author": "huanghui8030@qq.com"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "gulp-replace-demo",
+  "version": "1.0.0",
+  "description": "gulp-replace的基本用法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp-replace",
+    "demo"
+  ],
+  "author": "huanghui8030@qq.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.6.1"
+  }
+}
