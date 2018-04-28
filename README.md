@@ -18,13 +18,13 @@
 ## gulp-chsi-rev 插件
 
 - 静态资源添加时间戳作为版本号的插件
-  - 具体内容，请点击[gulp-chsi-rev](gulp-chsi-rev/readme.md)
+  - 具体内容，请点击[gulp-chsi-rev](https://github.com/huanghui8030/gulp-chsi-rev/readme.md)
   - 具体实例，请点击[gulp-demo](demo/html/demo.html)
 
 ## gulp-rename-rev插件
 
 - 脚本文件更名，添加版本号的插件。例如：a.js->a-1.1.1.js,b-1.2.3.js->b-1.3.3.js
-- 具体内容，请点击[gulp-rename-rev](gulp-rename-rev/readme.md)
+- 具体内容，请点击[gulp-rename-rev](https://github.com/huanghui8030/gulp-rename-rev/readme.md)
 - 具体实例，请点击[gulp-rename-rev-test](gulp-rename-rev-test/)
 
 ## gulp版本研究
